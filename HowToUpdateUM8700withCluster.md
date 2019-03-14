@@ -28,7 +28,7 @@ The following operation is executed in the script.
 6. Stop failover group to stop UM8700 application and configuration changes below.
 7. Backup the cluster configuration.
 8. Remove md resource (Mirror Disk) and regsync (Registry synchronization) resource from the cluster configuration.  
-    Please refer ★ for more detail.
+    Please refer [Supplement](https://github.com/EXPRESSCLUSTER/Tools/blob/master/HowToUpdateUM8700withCluster.md#supplement) for more detail.
 9. Apply the removal to the cluster. Cluster suspend and resume will also occur to apply the config.
 10. Stop Secondary Server cluster service to disable failover while updating UM8700.
 ### UM8700afterUpdate.ps1
