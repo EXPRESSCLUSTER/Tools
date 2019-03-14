@@ -51,15 +51,15 @@ However, there is no way to access while cluster service is stopped.
 This means that after OS is booted and before cluster service is started, we cannot access to Mirror Disk.
 To avoid that, we should delay the timing to access to Mirror Disk.
 Or we shuold remove md resource once to make Mirror Disk always accessible, then re-add it and execute initial synchronization from Primary to Secondary.
-That's the reason why md resource is remove in the scripts above.
+That's the reason why md resource is remove in [UM8700beforeUpdate.ps1](https://github.com/EXPRESSCLUSTER/Tools/blob/master/HowToUpdateUM8700withCluster.md#um8700beforeupdateps1).
 (If we can make the timing to delay, we don't have to remove the resource.)
 
 ### About Registry Sync
 This resource replicate changes on target registries from Active Server to Standby Server.
 If any changes are made on target registries while the resource is not activated, it will not replicated to Stanby Server.
 
-This means that after OS is booted and before regsync resource is started, we should not change the target registries.
+This means that any changes on the target registried after OS is booted and before regsync resource is started will be lost by failing over from Primary to Secondary.
 To avoid that, we should delay the timing to change.
-Or we shuold remove regsync resource once, then re-add md resource and execute initial synchronization from Primary to Secondary .
-That's the reason why regsync resource is remove in the scripts above.
+Or we shuold remove regsync resource once, then re-add md resource and execute initial synchronization from Primary to Secondary.
+That's the reason why regsync resource is remove in [UM8700beforeUpdate.ps1](https://github.com/EXPRESSCLUSTER/Tools/blob/master/HowToUpdateUM8700withCluster.md#um8700beforeupdateps1).
 (If we can make the timing to delay, we don't have to remove the resource.)
