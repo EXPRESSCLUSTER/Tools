@@ -14,7 +14,8 @@ And updated UM8700 binary is mirrored to Standby Server,
 ## Procedure
 1. Execute [UM8700beforeUpdate.ps1](https://github.com/EXPRESSCLUSTER/Tools/blob/master/scripts/UM8700beforeUpdate.ps1) on Active Server and follow it.
 2. Update UM8700 by following its update procedure
-3. Execute [UM8700afterUpdate.ps1](https://github.com/EXPRESSCLUSTER/Tools/blob/master/scripts/UM8700afterUpdate.ps1) on Active Server and follow it.
+3. Execute [UM8700afterUpdate.ps1](https://github.com/EXPRESSCLUSTER/Tools/blob/master/scripts/UM8700afterUpdate.ps1) on Active Server and follow it.  
+    \# If OS is rebooted in step 2, please wait for cluster service started, then execute the script.
 
 ## Detail
 ### UM8700beforeUpdate.ps1
