@@ -10,6 +10,9 @@ These ports are used for EXPRESSCLUSTER.
 
 ## How to use TCPPortCheck-Socket.ps1
 1. Copy **TCPPortCheck-Socket.ps1** to the server where you want to execute this script.
+
+    https://github.com/EXPRESSCLUSTER/Tools/blob/master/TCPPortCheck/TCPPortCheck-Socket.ps1
+
 2. Execute **TCPPortCheck-Socket.ps1** on Powershell
 
     .\TCPPortCheck-Socket.ps1
@@ -54,4 +57,11 @@ These ports are used for EXPRESSCLUSTER.
 
 
 ## How to use TCPPortCheck.ps1
+1. Copy **TCPPortCheck-Socket.ps1** to the server where you want to execute this script.
 
+    https://github.com/EXPRESSCLUSTER/Tools/blob/master/TCPPortCheck/TCPPortCheck.ps1
+    
+2. Edit **TCPPortCheck-Socket.ps1**
+    - Input Primary and Secondary server IP addresses to $ip1 and $ip2.
+
+3. Execute **TCPPortCheck-Socket.ps1** on Powershell
