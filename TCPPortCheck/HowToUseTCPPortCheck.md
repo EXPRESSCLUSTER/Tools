@@ -19,7 +19,8 @@ These ports are used for EXPRESSCLUSTER.
 
     e.g.
     ```
-    > .\TCPPortCheck-Socket.ps1 192.168.145.1
+    > .\TCPPortCheck-Socket.ps1
+    Input target server IP address: 192.168.145.1
     * 192.168.145.1:29001 is NG!
       192.168.145.1:29002 is OK.
       192.168.145.1:29003 is OK.
