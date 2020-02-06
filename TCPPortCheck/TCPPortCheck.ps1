@@ -1,4 +1,5 @@
-Param($ip1, $ip2)
+$ip1 = "<Primary server IP address>"
+$ip2 = "<Secondary server IP address>"
 
 date /t | Select-String $d
 time /t | Select-String $t
