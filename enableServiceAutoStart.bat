@@ -1,0 +1,9 @@
+sc config clpstartup start= auto
+sc config clprstd start= auto
+sc config clpevent start= auto
+sc config clpibsv start= auto
+sc config clpwebmgr start= auto
+sc config clpoldapi start= auto
+sc config clppm start= auto
+sc config clptrnsv start= auto
+sc config clpwebalt start= auto
