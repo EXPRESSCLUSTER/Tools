@@ -1,9 +1,10 @@
 sc config clpstartup start= auto
-sc config clprstd start= auto
+sc config clpdiskagent start= demand
 sc config clpevent start= auto
-sc config clpibsv start= auto
+sc config clpjra start= demand
 sc config clpwebmgr start= auto
 sc config clpoldapi start= auto
 sc config clppm start= auto
+sc config clpsra start= demand
 sc config clptrnsv start= auto
 sc config clpwebalt start= auto
