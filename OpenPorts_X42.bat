@@ -39,7 +39,7 @@ netsh advfirewall firewall add rule ^
     dir=in protocol=TCP localport=29008 action=allow > nul
     
 netsh advfirewall firewall add rule ^
-    name="EXPRESSCLUSTER Restful API Communication (TCP)" ^
+    name="EXPRESSCLUSTER Restful API Communication" ^
     dir=in protocol=TCP localport=29010 action=allow > nul
 
 netsh advfirewall firewall add rule ^
@@ -56,8 +56,8 @@ netsh advfirewall firewall add rule ^
     dir=in protocol=UDP localport=29007 action=allow > nul
 
 netsh advfirewall firewall add rule ^
-    name="EXPRESSCLUSTER Restful API Communication (UDP)" ^
-    dir=in protocol=UDP localport=29009 action=allow > nul
+    name="EXPRESSCLUSTER Restful API Client Communication" ^
+    dir=in protocol=TCP localport=29009 action=allow > nul
 
 rem = Server to WebManager
 netsh advfirewall firewall add rule ^
