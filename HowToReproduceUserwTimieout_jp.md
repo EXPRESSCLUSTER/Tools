@@ -8,9 +8,9 @@
 
 ### 動作環境
 Hyper-V上の仮想マシンを使用。
-- OS　CentOS7.5
-- CPU数　１
-- メモリ 2GB
+- CentOS7.5
+- CPU １(1 Core)
+- Memory 2GB
 - CLUSTERPRO X 4.3 for Windows
 
 ### 負荷テスト手順
