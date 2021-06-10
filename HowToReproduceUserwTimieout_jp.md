@@ -6,10 +6,12 @@
 ## Linux 環境の場合
 - stress-ngコマンドを用いてCPU負荷をかけることで、 userw に異常検知させることができます。
 
-### 使用環境
+### 動作環境
 Hyper-V上の仮想マシンを使用。
 - OS　CentOS7.5
 - CPU数　１
+- メモリ 2GB
+- CLUSTERPRO X 4.3 for Windows
 
 ### 負荷テスト手順
 1. stress-ng コマンドのインストール
