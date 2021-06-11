@@ -1,5 +1,3 @@
-
-
 # How to perform CPU load test with EXPRESSCLUSTER
 ## Overview
 When you perform CPU load test with EXPRESSCLUSTER, please follow this article.
@@ -34,43 +32,44 @@ Set the userw resource timeout low in the WebUI to increase the execution time.
 
 
 ## Windows
+You can re-produce userw monitor tieout by making CPU high load with Micorosoft CpuStres.
+About CpuStres, please refer "[Reference](https://github.com/EXPRESSCLUSTER/Tools/blob/master/HowToReproduceUserwTimieout_en.md#reference)"
 
-You can inspection userw detect "Abnormal" by applying CPU load using Micorosoft's CpuStres tool.
-
-### system requirements 
+### System Requirements 
 - CPU 1 (1 Core)
 - Memory 4GB
 - Windows Server 2016
 - EXPRESSCLUSTER X 4.3 for Windows
 
-### Detail
-1. Reduce userw timeouts in cluster configurations.
-Default value 300 seconds → 30 seconds
+### Procedure
+1. Edit userw timeout:
+   - Default 300 seconds -> 30 seconds
 2. Download and launch CpuStres.
 3. Change the CpuStres settings as follows:
-   - Leave the default number of threads (4 threads).
-   - Process-> Create Thread to increase threads
+   - Theread number: 4 (default)
+    - In the case you want to increase thread for higer load: Process-> Create Thread
    - Allocate all threads to CPU:
-   - Select each thread-> Thread-> Ideal CPU-> Select CPU to assign
+    - Select each thread-> Thread-> Ideal CPU-> Select CPU
    - Maximize the Activity Level of all threads:
-   - Select all threads-> Thread-> Activity Level-> Maximum (100%)
+    - Select all threads-> Thread-> Activity Level-> Maximum (100%)
    - Maximize Priority for all threads:
-   - Select all threads-> Thread-> Priority-> Time Critical (+ Sat)
+    - Select all threads-> Thread-> Priority-> Time Critical (+ Sat)
    - Make all threads Active:
-   - Select all threads Thread-> Activate
-   - If userw does not detect anomaly, reconfigure as follows and rerun CpuStres:
-   - Make userw timeouts even shorter
-   - Increase the number of threads in CpuStres
-4. Note
- - Since the number of threads must be larger than the number of CPU cores, increase the number of threads in an environment with a large number of cores.Each CPU must be assigned at least as many threads as there are cores.
-   - 2CPU For 4 cores (2 cores / CPU)
-   - Example 1: 4 Thread creation
-   - Allocate 2 threads to CPU 0 (1 thread / core)
-   - Allocate 2 threads to CPU 1 (1 thread / core)
-   - Example 2: 8 Thread creation
-   - Allocate 4 threads to CPU 0 (2 threads / core)
-   - Allocate 4 threads to CPU 1 (2 threads / core)
+    - Select all threads Thread-> Activate
+4. If userw timeout error does not occur, re-run CpuStres with changing the settings as follows:
+   - Chenge userw timeout more smaller.
+   - Increase the threads number of CpuStres.
+
+### Note
+ - In order to make all cores high load, theread number should be larger than CPU core number.
+ - Therefore, plese increse thread number in the case of multi core environment.
+   - In the case of 2 CPU for 4 cores (2 cores / CPU)
+ 		- E.g. 1) Create 4 threads
+			- Allocate 2 threads to CPU 0 (1 thread / core)
+			- Allocate other 2 threads to CPU 1 (1 thread / core)
+		- E.g. 2) Create 8 threads
+			- Allocate 4 threads to CPU 0 (2 threads / core)
+			- Allocate other 4 threads to CPU 1 (2 threads / core)
 
 ### Reference
 [Microsoft CpuStres v2.0 Introduction](https://docs.microsoft.com/ja-jp/sysinternals/downloads/cpustres)
-
