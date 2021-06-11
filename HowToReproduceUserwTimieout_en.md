@@ -1,6 +1,6 @@
 
 
-# How to perform CPU load test which is clustered
+# How to perform CPU load test with CLUSTERPRO
 ## Overview
 When you perform CPU load test with CLUSTERPRO, please follow this article.
 
