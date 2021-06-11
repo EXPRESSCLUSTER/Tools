@@ -1,8 +1,8 @@
 
 
-# How to perform CPU load test with CLUSTERPRO
+# How to perform CPU load test with EXPRESSCLUSTER
 ## Overview
-When you perform CPU load test with CLUSTERPRO, please follow this article.
+When you perform CPU load test with EXPRESSCLUSTER, please follow this article.
 
 ## Linux
 You can inspection user mode monitor resources (called userw) detect "Abnormal" by applying CPU load using stress-ng.
