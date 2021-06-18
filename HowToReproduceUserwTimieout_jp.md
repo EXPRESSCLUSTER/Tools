@@ -11,7 +11,7 @@ Hyper-V上の仮想マシンを使用。
 - CentOS7.5
 - CPU １(1 Core)
 - Memory 2GB
-- CLUSTERPRO X 4.3 for Windows
+- CLUSTERPRO X 4.3 for Linux
 
 ### 負荷テスト手順
 1. stress-ng コマンドのインストール
