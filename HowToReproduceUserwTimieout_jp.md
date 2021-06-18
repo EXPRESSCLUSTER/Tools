@@ -14,11 +14,11 @@ Hyper-V上の仮想マシンを使用。
 - CLUSTERPRO X 4.3 for Linux
 
 ### 負荷テスト手順
-1. stress-ng コマンドのインストール
+1. stress-ng コマンドのインストールする
 - [root@server ~]# yum -y install epel-release
 - [root@server ~]# yum -y install stress-ng
 	
-2. コマンドの実行例
+2. コマンドを実行する
 -  [root@server ~]# stress-ng -c 4 -t 5m --taskset 0 --sched rr --sched-prio 1
 	
 	- -cオプション：stress-ngのプロセス数を指定。私は1つだと不十分に負荷であったため、4にしました。
