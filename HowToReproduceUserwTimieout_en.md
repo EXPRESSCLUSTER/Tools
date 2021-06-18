@@ -12,7 +12,7 @@ You can inspection user mode monitor resources (called userw) detect "Abnormal" 
 - EXPRESSCLUSTER X 4.3 for Linux
 
 ###  Procedure
-1. Installing the stress-ng 
+1. Install the stress-ng 
  - [root@server ~]# yum -y install epel-release
  - [root@server ~]# yum -y install stress-ng
 2. Run the following command
