@@ -1,21 +1,21 @@
-# How to perform CPU load test with EXPRESSCLUSTER
+# Reproduce the Abnormal detection by userw 
 ## Overview
 When you perform CPU load test with EXPRESSCLUSTER, please follow this article.
 
 ## Linux
 You can inspection user mode monitor resources (called userw) detect "Abnormal" by applying CPU load using stress-ng.
 
-### system requirements 
+### System requirements 
 - OS CentOS 7.5
 - Number of CPUs 1
 - Memory 2GB
-- EXPRESSCLUSTER X 4.3 for Windows
+- EXPRESSCLUSTER X 4.3 for Linux
 
-### Detail
+###  Procedure
 1. Installing the stress-ng 
  - [root@server ~]# yum -y install epel-release
  - [root@server ~]# yum -y install stress-ng
-2. Example of running a command
+2. Run the following command
  - [root@server ~]# stress-ng -c 4 -t 5m --taskset 0 --sched rr --sched-prio 1
    - -c：Specify the number of stress-ng processes. I chose "4" because "1" wasn't enough load.
    - -t：Specify execution time
