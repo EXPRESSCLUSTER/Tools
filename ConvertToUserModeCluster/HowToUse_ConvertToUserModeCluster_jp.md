@@ -20,6 +20,11 @@
 
     https://github.com/EXPRESSCLUSTER/Tools/blob/master/ConvertToUserModeCluster/ConvertToUserModeCluster.sh
 
+1. CLUSTERPRO X 4.2 を使用している場合は、以下のリンクから clpcfset の実行ファイルをダウンロードし、`ConvertToUserModeCluster.sh`と同じパスに配置します。
+
+    https://github.com/EXPRESSCLUSTER/CreateClusterOnLinux/releases
+
+1. CLUSTERPRO X 4.3 以降を使用している場合は、`ConvertToUserModeCluster.sh`内の`./clpcfset`を`clpcfset`に置換します。
 1. クラスタ構成情報ファイル `clp.conf` を `ConvertToUserModeCluster.sh` と同じパスにコピーします。
 1. `ConvertToUserModeCluster.sh` を実行します。
 

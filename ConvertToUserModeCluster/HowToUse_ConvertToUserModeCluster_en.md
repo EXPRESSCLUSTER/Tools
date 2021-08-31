@@ -20,6 +20,11 @@ The converted points are
 
     https://github.com/EXPRESSCLUSTER/Tools/blob/master/ConvertToUserModeCluster/ConvertToUserModeCluster.sh
 
+1. If you use EXPRESSCLUSTER X 4.2, download clpcfset from the following link, and save it to the same path with `ConvertToUserModeCluster.sh`.
+
+    https://github.com/EXPRESSCLUSTER/CreateClusterOnLinux/releases
+
+1. If you use EXPRESSCLUSTER X 4.3 or later, replace `./clpcfset` with `clpcfset` in `ConvertToUserModeCluster.sh` with text editor.
 1. Copy `clp.conf` to the same path as `ConvertToUserModeCluster.sh`.
 1. Execute `ConvertToUserModeCluster.sh`.
 
