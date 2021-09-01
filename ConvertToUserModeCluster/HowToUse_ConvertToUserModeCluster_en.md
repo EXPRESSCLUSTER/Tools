@@ -35,6 +35,11 @@ The converted points are
     Converted userw monitoring method to softdog.
     Converted Shutdown Monitor method to softdog.
     ```
+1. Suspend the cluster
+
+    ```
+    $ clpcl --suspend
+    ```
 1. Apply the `clp.conf` to the cluster with clpcfctrl command.
 
     In case that `clp.conf` was created by WebUI on Linux machine, or pulled directly from the cluster
@@ -45,23 +50,47 @@ The converted points are
     ```
     $ clpcfctrl --push -w -x .
     ```
-1. Suspend the cluster
-
-    ```
-    $ clpcl --suspend
-    ```
 1. Restart ECX services.
 
     In case that ECX version is 4.2 or later
     ```
-    $ clpcl -r --ib --web
+    $ clpcl -r --ib --web --alert
     ```
     In case that ECX version is older than 4.2
     ```
-    $ clpcl -r --web
+    $ clpcl -r --web --alert
     ```
 1. Resume the cluster.
 
     ```
     $ clpcl --resume
+    ```
+1. Confirm that cluster settings has been changed.
+    
+    **Type** of heartbeat resources are **lanhb**.
+    ```
+    # clpstat --hb
+    =======================  CLUSTER INFORMATION  =======================
+    [HB0 : lanhb1]
+      Type                                                   : lanhb
+      Comment                                                : LAN Heartbeat
+    =====================================================================
+    ```
+    
+    **Method** of the User mode monitor resource is **softdog**.
+    ```
+    # clpstat --mon userw
+    =======================  CLUSTER INFORMATION  =======================
+    [Monitor5 : userw]
+        Type                                                     : userw
+        Comment                                                  :
+        Method                                                   : softdog
+        Use HB interval and timeout                              : On
+    =====================================================================
+    ```
+
+    **Method** of Shutdown monitoring method in the cluster property is **softdog**.
+    ```
+    # clpstat --cl --detail | grep "Shutdown Monitoring Method"
+        Shutdown Monitoring Method                               : softdog
     ```

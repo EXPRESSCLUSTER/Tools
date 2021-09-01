@@ -35,6 +35,11 @@
     Converted userw monitoring method to softdog.
     Converted Shutdown Monitor method to softdog.
     ```
+1. クラスタをサスペンドします。
+
+    ```
+    $ clpcl --suspend
+    ```
 1. clpcfctrl コマンドで `clp.conf` を各サーバに配信します。
 
     `clp.conf` を Linux 上の Cluster WebUI を使用して保存した場合、またはクラスタから直接コピーした場合。
@@ -45,23 +50,48 @@
     ```
     $ clpcfctrl --push -w -x .
     ```
-1. クラスタをサスペンドします。
 
-    ```
-    $ clpcl --suspend
-    ```
 1. CLUSTERPROの一部サービスを再起動します。
 
     CLUSTERPRO X 4.2 以降の場合
     ```
-    $ clpcl -r --ib --web
+    $ clpcl -r --ib --web --alert
     ```
     CLUSTERPRO X 4.1 以前の場合
     ```
-    $ clpcl -r --web
+    $ clpcl -r --web --alert
     ```
 1. クラスタをリジュームします。
 
     ```
     $ clpcl --resume
+    ```
+1. 以下のコマンドでクラスタの設定が変更されたことを確認します。
+
+    ハートビートリソースの **Type** が **lanhb**である。
+    ```
+    # clpstat --hb
+    =======================  CLUSTER INFORMATION  =======================
+    [HB0 : lanhb1]
+      Type                                                   : lanhb
+      Comment                                                : LAN Heartbeat
+    =====================================================================
+    ```
+    
+    ユーザ空間モニタリソースの **Method** が **softdog** である。
+    ```
+    # clpstat --mon userw
+    =======================  CLUSTER INFORMATION  =======================
+    [Monitor5 : userw]
+        Type                                                     : userw
+        Comment                                                  :
+        Method                                                   : softdog
+        Use HB interval and timeout                              : On
+    =====================================================================
+    ```
+
+    クラスタプロパティ シャットダウン監視の **Method** が **softdog** である。
+    ```
+    # clpstat --cl --detail | grep "Shutdown Monitoring Method"
+        Shutdown Monitoring Method                               : softdog
     ```
