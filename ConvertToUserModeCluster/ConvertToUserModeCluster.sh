@@ -8,12 +8,12 @@ if [ $ret != 0 ]; then
 fi
 
 # Convert keepalive to softdog in userw
-xmllint --xpath /root/monitor/userw clp.conf &> /dev/null
+echo "cat /root/monitor/userw" | xmllint --shell clp.conf | grep -v '^/' &> /dev/null
 if [ $? != 0 ]; then
     exit 0
 fi
 
-ret=`xmllint --xpath "/root/monitor/userw/parameters/method/text()" clp.conf 2> /dev/null`
+ret=`echo "cat /root/monitor/userw/parameters/method/text()" | xmllint --shell clp.conf | grep -v '^/' 2> /dev/null`
 ./clpcfset add monparam userw userw parameters/method softdog
 ./clpcfset add monparam userw userw parameters/action RESET
 if [ "$ret" != "softdog" ]; then
@@ -21,7 +21,7 @@ if [ "$ret" != "softdog" ]; then
 fi
 
 # Convert keepalive to softdog in Shutdown Monitor
-ret=`xmllint --xpath "/root/haltp/method/text()" clp.conf 2> /dev/null`
+ret=`echo "cat /root/haltp/method/text()" | xmllint --shell clp.conf | grep -v '^/' 2> /dev/null`
 ./clpcfset add clsparam haltp/method softdog
 ./clpcfset add clsparam haltp/action RESET
 if [ "$ret" != "softdog" ]; then
