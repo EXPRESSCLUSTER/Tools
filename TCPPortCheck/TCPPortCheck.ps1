@@ -27,6 +27,8 @@ Test-NetConnection -ComputerName $targetip -Port 29003
 Test-NetConnection -ComputerName $targetip -Port 29004
 Test-NetConnection -ComputerName $targetip -Port 29005
 Test-NetConnection -ComputerName $targetip -Port 29007
+# The following ports are not used for ECX 4.0 or earlier
 Test-NetConnection -ComputerName $targetip -Port 29008
+Test-NetConnection -ComputerName $targetip -Port 29009
 Test-NetConnection -ComputerName $targetip -Port 29010
 Read-Host "Press Enter to close this window..."
