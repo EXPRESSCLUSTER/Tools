@@ -27,4 +27,6 @@ Test-NetConnection -ComputerName $targetip -Port 29003
 Test-NetConnection -ComputerName $targetip -Port 29004
 Test-NetConnection -ComputerName $targetip -Port 29005
 Test-NetConnection -ComputerName $targetip -Port 29007
+Test-NetConnection -ComputerName $targetip -Port 29008
+Test-NetConnection -ComputerName $targetip -Port 29010
 Read-Host "Press Enter to close this window..."
