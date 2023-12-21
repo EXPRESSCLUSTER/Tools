@@ -1,17 +1,16 @@
 # How to use TCPPortCheck
 ## Overview
 
-TCPPortCheck.ps1 and TCPPortCheck-Socket.ps1 check if TCP ports 29001, 29002, 29003, 29004, 29005, 29007 open.
-These ports are used for EXPRESSCLUSTER.
+TCPPortCheck.ps1 and TCPPortCheck-Socket.ps1 check whether TCP ports which are used by EXPRESSCLUSTER X for Windows opens or not.
 
-- If you use this script on Windows Server 2012 R2 or earlier, please use **TCPPortCheck-Socket.ps1**
+- If you use this script on Windows Server 2012 R2 or earlier, please use [**TCPPortCheck-Socket.ps1**](https://github.com/EXPRESSCLUSTER/Tools/blob/master/TCPPortCheck/HowToUseTCPPortCheck.md#how-to-use-tcpportcheck-socketps1)
 
-- If you use this script on Windows Server 2016 or later, please use **TCPPortCheck.ps1**
+- If you use this script on Windows Server 2016 or later, please use [**TCPPortCheck.ps1**](https://github.com/EXPRESSCLUSTER/Tools/blob/master/TCPPortCheck/HowToUseTCPPortCheck.md#how-to-use-tcpportcheckps1)
+
+Please refer EXPRESSCLUSTER X guide about the details of EXPRESSCLUSTER X port numbers.
 
 ## How to use TCPPortCheck-Socket.ps1
-1. Copy **TCPPortCheck-Socket.ps1** to the server where you want to execute this script.
-
-    https://github.com/EXPRESSCLUSTER/Tools/blob/master/TCPPortCheck/TCPPortCheck-Socket.ps1
+1. Copy [**TCPPortCheck-Socket.ps1**](https://github.com/EXPRESSCLUSTER/Tools/blob/master/TCPPortCheck/TCPPortCheck-Socket.ps1) to both Primary and Secondary cluster servers.
 
 2. Execute **TCPPortCheck-Socket.ps1** on Powershell
 
@@ -58,11 +57,25 @@ These ports are used for EXPRESSCLUSTER.
 
 
 ## How to use TCPPortCheck.ps1
-1. Copy **TCPPortCheck-Socket.ps1** to the server where you want to execute this script.
-
-    https://github.com/EXPRESSCLUSTER/Tools/blob/master/TCPPortCheck/TCPPortCheck.ps1
+1. Copy [**TCPPortCheck.ps1**](https://github.com/EXPRESSCLUSTER/Tools/blob/master/TCPPortCheck/TCPPortCheck.ps1) to both Primary and Secondary cluster servers.
     
 2. Edit **TCPPortCheck-Socket.ps1**
     - Input Primary and Secondary server IP addresses to $ip1 and $ip2.
+    - Sample) In the case that Primary server is 192.168.1.11 and Secondary server is 192.168.1.12:
+	```bat
+	$ip1 = "192.168.1.11"
+	$ip2 = "192.168.1.12"
+	```
 
-3. Execute **TCPPortCheck-Socket.ps1** on Powershell
+3. Execute **TCPPortCheck-Socket.ps1** on Powershell and check the result, especially "TcpTestSucceeded".
+   - Sample) In the case that 29001 port TCP communication from Primary to Secondary server succeeds:
+	```bat
+	Test-NetConnection -ComputerName 192.168.11.21 -Port 29001
+
+	ComputerName     : 192.168.11.21
+	RemoteAddress    : 192.168.11.21
+	RemotePort       : 29001
+	InterfaceAlias   : private-lan
+	SourceAddress    : 192.168.11.11
+	TcpTestSucceeded : True
+	```
