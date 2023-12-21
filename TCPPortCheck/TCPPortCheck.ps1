@@ -26,8 +26,7 @@ Test-NetConnection -ComputerName $targetip -Port 29002
 Test-NetConnection -ComputerName $targetip -Port 29003
 Test-NetConnection -ComputerName $targetip -Port 29004
 Test-NetConnection -ComputerName $targetip -Port 29005
-Test-NetConnection -ComputerName $targetip -Port 29007
-# The following ports are not used for ECX 4.0 or earlier
+echo "If you use ECX 4.0 or earlier, please ignore the following results because it does not use the following ports."
 Test-NetConnection -ComputerName $targetip -Port 29008
 Test-NetConnection -ComputerName $targetip -Port 29009
 Test-NetConnection -ComputerName $targetip -Port 29010
