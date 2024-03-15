@@ -14,3 +14,8 @@ After
 ```
 root       1902   1832  0 18:07 ?        00:00:00 parent
 ```
+
+### Reference
+
+- https://manpages.ubuntu.com/manpages/focal/ja/man2/wait.2.html
+- https://ex1.m-yabe.com/archives/3490
